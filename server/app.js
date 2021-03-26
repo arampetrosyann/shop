@@ -14,14 +14,6 @@ app.use(cors({ credentials: true }));
 
 const prod = app.get("env") === "production";
 
-if (prod) {
-  app.use(express.static(path.resolve("../", "client", "build")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve("../", "client", "build", "index.html"));
-  });
-}
-
 app.use(
   "/graphql",
   graphqlHTTP((req, res) => ({
@@ -30,5 +22,13 @@ app.use(
     graphiql: true,
   }))
 );
+
+if (prod) {
+  app.use(express.static(path.resolve("../", "client", "build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve("../", "client", "build", "index.html"));
+  });
+}
 
 app.listen(env.PORT);
