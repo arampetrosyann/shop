@@ -1,0 +1,31 @@
+.nav {
+  height: 100%;
+  margin: 0 14px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  height: inherit;
+  list-style: none;
+  list-style-type: none;
+}
+
+.list > li {
+  border-radius: 2px;
+}
+
+.list > li:hover,
+.list > li:focus {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.link {
+  display: flex;
+  height: 100%;
+  padding: 0 16px;
+  justify-content: center;
+  align-items: center;
+}
